@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -100,6 +103,16 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ],
                   ),
+                )
+                    .animate()
+                    .moveY(
+                      duration: 800.ms,
+                    )
+                    .fadeIn(
+                      duration: 800.ms,
+                    ),
+                const SizedBox(
+                  height: 20.0,
                 ),
                 QTextField(
                   label: "Email",
@@ -110,7 +123,14 @@ class _LoginViewState extends State<LoginView> {
                     controller.state.email = value;
                     DBService.set("email", value);
                   },
-                ),
+                )
+                    .animate()
+                    .move(
+                      duration: 800.ms,
+                    )
+                    .fadeIn(
+                      duration: 800.ms,
+                    ),
                 QTextField(
                   label: "Password",
                   obscure: true,
@@ -120,7 +140,14 @@ class _LoginViewState extends State<LoginView> {
                   onChanged: (value) {
                     controller.state.password = value;
                   },
-                ),
+                )
+                    .animate()
+                    .move(
+                      duration: 800.ms,
+                    )
+                    .fadeIn(
+                      duration: 800.ms,
+                    ),
                 QButton(
                   label: "Login",
                   onPressed: () {
@@ -130,7 +157,15 @@ class _LoginViewState extends State<LoginView> {
                     }
                     controller.login();
                   },
-                ),
+                )
+                    .animate()
+                    .moveY(
+                      begin: 100,
+                      duration: 800.ms,
+                    )
+                    .fadeIn(
+                      duration: 800.ms,
+                    ),
               ],
             ),
           ),

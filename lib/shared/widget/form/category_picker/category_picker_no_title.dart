@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
-class QCategoryPicker extends StatefulWidget {
+class QCategoryPickerNoTitle extends StatefulWidget {
   final List<Map<String, dynamic>> items;
   final String? label;
   final dynamic value;
@@ -21,7 +20,7 @@ class QCategoryPicker extends StatefulWidget {
     dynamic value,
     Map<String, dynamic> item,
   ) onChanged;
-  QCategoryPicker({
+  QCategoryPickerNoTitle({
     Key? key,
     required this.items,
     required this.onChanged,
@@ -34,10 +33,10 @@ class QCategoryPicker extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<QCategoryPicker> createState() => _QCategoryPickerState();
+  State<QCategoryPickerNoTitle> createState() => _QCategoryPickerNoTitleState();
 }
 
-class _QCategoryPickerState extends State<QCategoryPicker> {
+class _QCategoryPickerNoTitleState extends State<QCategoryPickerNoTitle> {
   List<Map<String, dynamic>> items = [];
   int selectedIndex = -1;
 
@@ -130,7 +129,6 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                         }
 
                         return Container(
-                          height: 36,
                           margin: const EdgeInsets.only(
                             right: 12.0,
                           ),
@@ -145,14 +143,7 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                             onPressed: () => updateIndex(index),
                             child: Text(item["label"]),
                           ),
-                        )
-                            .animate()
-                            .move(
-                              duration: ((index * 300) + 500).ms,
-                            )
-                            .fadeIn(
-                              duration: ((index * 300) + 500).ms,
-                            );
+                        );
                       }),
                     ),
                   ),
